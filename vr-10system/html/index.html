@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://kit.fontawesome.com/6b037c9e5a.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="script.js" defer></script>
+    <link href="style.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/4a391ae91c.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="systyem-main">
+        <div class="header">
+            <span class="header-txt">Active Police</span>
+        </div>
+        <div class="systyem-container">
+            <div class="players">
+                <span class="tag">none</span>VR SCRIPTS | Academic - <span style="color: #627188; font-weight: bold;" class="">(1)</span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="menu-container">
+
+        <div class="menu-header">
+            <span class="menu-header-txt">Employees List Menu</span>
+            <span class="show" id="close"><i class="fas fa-times-circle"></i></span>
+        </div>
+        <div class="sidebar">
+            
+            <div id="settings"><span class="sidebar-nav-text"><i class="fa fa-fw fa-cog"></i> Settings</span></div>
+            <br id="br-boss">
+            <div id="boss"><span class="sidebar-nav-text"><i class="fa fa-fw fa-lock"></i> Boss</span></div>
+            <br><br><br>
+            <br><br><br><br><br><br><br><br><br>
+            <br class="br-isboss"><br class="br-isboss"><br class="br-isboss">
+            <div style="border: none"><span href="#" style="text-decoration: none;"><i class="fa fa-toggle-on"></i> Toggle List</span></div>
+            <div style="border: none" class="toggle-pill-color enable_list">
+                <input type="checkbox" id="enable_list" name="check" checked>
+                <label for="enable_list"></label>
+            </div>
+
+
+        </div>
+
+        <div class="menu-content">
+            <div id='settings-page' class="page">
+                <label id="callsign">CallSign - </label>
+                <input class="input callsign" type="text" id="callsign" name="callsign" placeholder="Call Sign" style="margin-top: 18px; text-transform: uppercase;">
+                <button id="savesettings" class="btn"><i class="far fa-folder-open"></i> Save</button>
+                <br><br>
+    
+                <label id="settings">Opacity - </label>
+                <input class="range" type="range" min="0" max="100" id="increase-size-opacity" name="opacity" value = "100">
+                <br><br>
+                <label id="settings">Font Size - </label>
+                <input class="range" type="range" min="0" max="18" id="increase-size-font" value = "9" name="fontsize">
+                <br><br>
+                <button id="resetsettings" class="btn"><i class="fa fa-eraser"></i></i> Reset</button>
+                <br><br><br><br>
+                <br><br><br><br><br><br><br><br>
+                
+            </div>
+    
+            <div id='boss-page' class="page">
+                <label id="managecallsign">Manage Call Signs: </label><br>
+                <div id="input-clrs"></div>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>
