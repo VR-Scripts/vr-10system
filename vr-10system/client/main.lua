@@ -22,10 +22,10 @@ AddEventHandler(VRConfig.Core..":Client:OnPlayerLoaded", function()
     if job and CheckValidJob(job.name) then
         TriggerServerEvent('vr-employeelist:server:addToList', job.name, job.onduty)
         toggleList(true)
-        Core.Functions.TriggerCallback('vr-10system:server:GetTagsColorsAndJob', function (tagColors, job)
+        Core.Functions.TriggerCallback('vr-10system:server:GetTagsColorsAndJob', function (tagColors, job_)
             SendNUIMessage({
                 action = 'updatelist',
-                tagstable = tagColors[job]
+                tagstable = tagColors[job_]
             })
         end)
         if VRConfig.ShowOnOffDuty then
@@ -41,10 +41,10 @@ AddEventHandler(VRConfig.Core..":Client:OnPlayerLoaded", function()
 end)
 
 Citizen.CreateThread(function()
-    Core.Functions.TriggerCallback('vr-10system:server:GetTagsColorsAndJob', function (tagColors, job)
+    Core.Functions.TriggerCallback('vr-10system:server:GetTagsColorsAndJob', function (tagColors, job_)
         SendNUIMessage({
             action = 'updatelist',
-            tagstable = tagColors[job]
+            tagstable = tagColors[job_]
         })
     end)
 end)
@@ -57,10 +57,10 @@ Citizen.CreateThread(function()
         if CheckValidJob(job.name) then
             TriggerServerEvent('vr-employeelist:server:addToList', job.name, job.onduty)
             toggleList(true)
-            Core.Functions.TriggerCallback('vr-10system:server:GetTagsColorsAndJob', function(tagColors, job)
+            Core.Functions.TriggerCallback('vr-10system:server:GetTagsColorsAndJob', function(tagColors, job_)
                 SendNUIMessage({
                     action = 'updatelist',
-                    tagstable = tagColors[job]
+                    tagstable = tagColors[job_]
                 })
             end)
             if VRConfig.ShowOnOffDuty then
