@@ -63,15 +63,13 @@ end)
 RegisterNetEvent("vr-10system:server:removeFromList")
 AddEventHandler("vr-10system:server:removeFromList", function()
     local src = source
-    local jobName = nil
-    for k,v in pairs(Employees) do
-        if v[tostring(src)] then
-            Employees[k][tostring(src)] = nil
-            jobName = k
-            break
+    local job = Core.Functions.GetPlayer(src).PlayerData.job
+    if job and Employees[job.name] and Employees[job.name][tostring(src)] ~= nil then
+        Employees[job.name][tostring(src)] = nil
+        for k, v in pairs(Employees[job.name]) do
+            TriggerClientEvent('vr-10system:client:updateList', k, Employees[job.name])
         end
     end
-    TriggerClientEvent('vr-10system:client:updateList', -1, Employees[jobName])
 end)
 
 RegisterNetEvent(VRConfig.UpdateChannelEvent)
@@ -148,16 +146,6 @@ AddEventHandler("vr-10system:server:saveNewTagsColors", function(tags)
 end)
 
 
-AddEventHandler("playerDropped", function()
-    local src = source
-    local job = Core.Functions.GetPlayer(src).PlayerData.job
-    if Employees[job.name] and Employees[job.name][tostring(src)] ~= nil then
-        Employees[job.name][tostring(src)] = nil
-        for k, v in pairs(Employees[job.name]) do
-            TriggerClientEvent('vr-10system:client:updateList', k, Employees[job.name])
-        end
-    end
-end)
 
 
 function getPlayerInfo(src)
