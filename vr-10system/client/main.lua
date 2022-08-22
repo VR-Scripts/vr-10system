@@ -40,6 +40,10 @@ AddEventHandler(VRConfig.Core..":Client:OnPlayerLoaded", function()
     end
 end)
 
+AddEventHandler(VRConfig.Core .. ":Client:OnPlayerUnload", function()
+    TriggerServerEvent('vr-10system:server:removeFromList')
+end)
+
 Citizen.CreateThread(function()
     Core.Functions.TriggerCallback('vr-10system:server:GetTagsColorsAndJob', function (tagColors, job_)
         SendNUIMessage({
