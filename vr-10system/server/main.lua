@@ -77,7 +77,7 @@ AddEventHandler(VRConfig.UpdateChannelEvent, function(sid,channel)
     local player = Core.Functions.GetPlayer(sid)
     local jobname = player.PlayerData.job.name
     sid = tostring(sid)
-    if Employees[jobname][sid] then
+    if jobname and Employees[jobname] and Employees[jobname][sid] then
         Employees[jobname][sid].channel = channel
         for k, v in pairs(Employees[player.PlayerData.job.name]) do
             TriggerClientEvent('vr-10system:client:updateList', k, Employees[player.PlayerData.job.name])
@@ -106,7 +106,7 @@ AddEventHandler(VRConfig.UpdateTalkingEvent, function(state)
     local player = Core.Functions.GetPlayer(source)
     local jobname = player.PlayerData.job.name
     local sid = tostring(source)
-    if Employees[jobname][sid] then 
+    if jobname and Employees[jobname] and Employees[jobname][sid] then 
         Employees[jobname][sid].talking = state
         for k, v in pairs(Employees[player.PlayerData.job.name]) do
             TriggerClientEvent('vr-10system:client:updateList', k, Employees[player.PlayerData.job.name])
