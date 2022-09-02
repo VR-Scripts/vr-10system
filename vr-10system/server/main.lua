@@ -62,14 +62,12 @@ end)
 
 RegisterNetEvent("vr-10system:server:removeFromList")
 AddEventHandler("vr-10system:server:removeFromList", function()
-    local src = source
-    local job = Core.Functions.GetPlayer(src).PlayerData.job
-    if job and Employees[job.name] and Employees[job.name][tostring(src)] ~= nil then
-        Employees[job.name][tostring(src)] = nil
-        for k, v in pairs(Employees[job.name]) do
-            TriggerClientEvent('vr-10system:client:updateList', k, Employees[job.name])
-        end
-    end
+	local src = source
+	for k,v in pairs(Employees) do
+		if v[src] then
+			v[src] = nil
+		end
+	end
 end)
 
 RegisterNetEvent(VRConfig.UpdateChannelEvent)
