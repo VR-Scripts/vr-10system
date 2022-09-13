@@ -45,17 +45,8 @@ AddEventHandler(VRConfig.Core .. ":Client:OnPlayerUnload", function()
 end)
 
 Citizen.CreateThread(function()
-    Core.Functions.TriggerCallback('vr-10system:server:GetTagsColorsAndJob', function (tagColors, job_)
-        SendNUIMessage({
-            action = 'updatelist',
-            tagstable = tagColors[job_]
-        })
-    end)
-end)
-
-Citizen.CreateThread(function()
     Wait(1000)
-    --if playerLoaded then
+    if playerLoaded then
         job = Core.Functions.GetPlayerData().job
 
         if CheckValidJob(job.name) then
@@ -77,7 +68,7 @@ Citizen.CreateThread(function()
         else
             canBeSeen = false
         end
-    --end
+    end
 end)
 
 RegisterNetEvent(VRConfig.Core .. ':Client:OnJobUpdate')
